@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="gamesPage.master.cs" Inherits="tst.userPages.gamesPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="./styles/style.css"/>
+        <title></title>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+
+        <header runat="server">
+            <h1 class="siteTitle">GamesConnection</h1>
+
+            <div class="headerImage">
+                
+                <asp:ImageButton ID="userIcon" CssClass="userIcon" runat="server" OnClick="userIcon_Click" /> 
+            </div>
+            
+        </header>
+
+
+        <div class="gamesDiv">
+            <asp:ContentPlaceHolder ID="content1" runat="server">
+                        <!--Area dos jogos -->
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+</body>
+</html>

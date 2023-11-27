@@ -1,0 +1,144 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 90%;
+    width: 30%;
+    min-width: 505px;
+    background-color: #fff;
+    border: 0.5px solid #878787;
+    box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 1.2rem;
+    padding: 1.4rem 4.7rem 2.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90rem;
+}
+
+.headers {
+    width: 80%;
+}
+
+.container h2 {
+    font-family: Poppins, sans-serif;
+    font-weight: 300;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.container h1 {
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 3.2rem;
+    margin-bottom: 2.6rem;
+    width: 100%;
+}
+
+.inputBox {
+    margin-top: 2.4rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+
+.inputBox .lblInput {
+    width: 100%;
+    font-family: Poppins, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.inputBox .inputModel {
+    height: 6rem;
+    outline: none;
+    padding: 1.9rem 2.7rem;
+    font-family: Poppins, sans-serif;
+    font-size: 1.6rem;
+    border-radius: 6px;
+    border: 0.6px solid #282828;
+}
+
+#btnRegistrar, #btnLogar {
+    width: 80%;
+    height: 6rem;
+    margin-top: 3.1rem;
+    margin-bottom: 2rem;
+    border-radius: .6rem;
+    background-color: #000;
+    outline: none;
+    border: none;
+    color: #FFF;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    transition: .2s
+}
+
+#inputImage {
+    display: none;
+}
+
+
+
+#btnRegistrar:hover {
+    cursor: pointer;
+    background-color: rgb(0,0,0, 0.7)
+}
+
+#btnLogar:hover {
+    cursor: pointer;
+    background-color: rgb(0,0,0, 0.7)
+}
+
+.question {
+    color: #7D7D7D;
+    font-family: Poppins, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.bold {
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+#lblUpload {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 999rem;
+    background-image: url("../userResources/jinxedejinx.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
