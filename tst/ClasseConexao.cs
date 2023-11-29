@@ -12,7 +12,7 @@ public class ClasseConexao
 
         public SqlConnection conectar(){
             try{
-                String strConexao = "Data Source=DESKTOP-OC0TO14;Initial Catalog=sqlTeste;Persist Security Info=True;User ID=sa;Password=5267.Pe";
+                String strConexao = "Data Source=DESKTOP-OC0TO14;Initial Catalog=ListaJogos;Persist Security Info=True;User ID=sa;Password=5267.Pe";
                 conexao.ConnectionString = strConexao;
                 conexao.Open();
                 return conexao;

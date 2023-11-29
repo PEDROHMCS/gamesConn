@@ -16,3 +16,204 @@ body {
     min-height: 100vh;
 }
 
+form{
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    gap: 3.4rem;
+    margin-bottom: 6rem;
+}
+
+header h1{
+    font-size: 5rem;
+    font-family: Archivo, sans-serif;
+}
+
+header h2 {
+    font-size: 4rem;
+    font-family: 'Archivo', sans-serif;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.buttonModel {
+    width: 18rem;
+    height: 6rem;
+    outline: none;
+    border: none;
+    border-radius: .4rem;
+    background-color: #774FD1;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Archivo', sans-serif;
+    color: #FFF;
+    transition: .2s
+}
+
+.buttonModel:hover {
+    background-color: rgb(119, 79, 209, .8);
+    cursor: pointer;
+}
+
+.formSection{
+    width: 100%;
+    min-height: 50vh;
+}
+
+.gameForm, .genderForm, .platForm {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formHolder{
+    min-width: 60rem;
+}
+
+.formHolder h3 {
+    font-size: 3.6rem;
+    margin-bottom: 1.6rem;
+    color: #32264D;
+    border-bottom: .1rem solid #E6E6F0;
+    padding-bottom: 1rem;
+}
+
+.innerBox .lblModel {
+    display: block;
+    font-size: 1.6rem;
+    color: #9C98A6;
+    padding: 2rem 0 .5rem 0;
+    font-family: Poppins, sans-serif;
+}
+
+.small-info{
+    font-size: 1.2rem;
+    font-weight: 200;
+}
+
+.txtInputModel {
+    width: 100%;
+    border: none;
+    background-color: #FAFAFC;
+    height: 5rem;
+    border: 1px solid #E6E6F0;
+    border-radius: .4rem;
+    outline: none;
+    padding: 2rem;
+    font-size: 1.6rem;
+    font-family: Poppins, sans-serif;
+    color: #191919;
+    transition: .2s
+}
+.txtInputModel:focus {
+    outline: 1px solid #774FD1;
+}
+
+
+.txtAreaModel {
+    width: 100%;
+    border: none;
+    background-color: #FAFAFC;
+    height: 20rem;
+    border: 1px solid #E6E6F0;
+    border-radius: .4rem;
+    outline: none;
+    padding: 2rem;
+    font-size: 1.6rem;
+    font-family: Poppins, sans-serif;
+    color: #191919;
+    transition: .2s
+}
+
+.txtAreaModel:focus {
+    outline: 1px solid #774FD1;
+}
+
+
+
+
+.buttonModelEnviar {
+    width: 14rem;
+    height: 4rem;
+    outline: none;
+    border: none;
+    border-radius: .4rem;
+    background-color: #774FD1;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Archivo', sans-serif;
+    color: #FFF;
+    transition: .2s;
+    margin-top: 1.6rem;
+}
+.buttonModelEnviar:hover {
+    background-color: rgb(119, 79, 209, .8);
+    cursor: pointer;
+}
+
+#inputGameImage {
+    display: none;
+}
+
+#lblUploadGame {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 8rem;
+    background-image: url("../../userPages/gamesImages/hollow.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer{
+    padding: 0 2rem;
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+
+#btnLeave {
+    width: 14rem;
+    height: 4rem;
+    outline: none;
+    border: none;
+    border-radius: .4rem;
+    background-color: #EE4B2B;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Archivo', sans-serif;
+    color: #FFF;
+    transition: .2s;
+    margin-top: 1.6rem;
+}
+
+    #btnLeave:hover {
+        background-color: rgb(238, 75, 43, 0.7);
+        cursor: pointer;
+    }
+
+.hidden{
+    display: none;
+}
