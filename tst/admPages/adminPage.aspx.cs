@@ -5,12 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using tst.logicClasses;
 
 namespace tst.admPages
 {
     public partial class adminPage : System.Web.UI.Page
     {
         ClasseConexao conn;
+        gamesConn main;
         string strFileName, strFilePath, strFolder, gameIcon;
         string gameName, gameSin, genName, genDesc, platName, platDesc;
         int gameCat;
@@ -26,7 +28,7 @@ namespace tst.admPages
             platForm.Visible = platState;
         }
 
-
+        #region openDivHandlers
         protected void btnCadastrarPlataforma_Click(object sender, EventArgs e)
         {
             if (!platForm.Visible)
@@ -88,6 +90,10 @@ namespace tst.admPages
             gameForm.Visible = gameState;
             platForm.Visible = platState;
         }
+        #endregion
+
+
+
 
         protected void btnCadPlat_Click(object sender, EventArgs e)
         {
@@ -130,31 +136,31 @@ namespace tst.admPages
             }
         }
 
-              
 
-        
+
+
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
-            
+
             gameName = (String.IsNullOrEmpty(txtGameName.Text)) ? throw new Exception("Insira os dados") : txtGameName.Text;
             gameCat = (String.IsNullOrEmpty(txtGameCat.Text)) ? throw new Exception("Insira os dados") : Convert.ToInt32(txtGameCat.Text);
             gameSin = (String.IsNullOrEmpty(txtGameSin.Text)) ? throw new Exception("Insira os dados") : txtGameSin.Text;
-            
+
             gameIcon = "userIcon.png";
 
             createIcon();
 
             try
             {
-                
+
                 conn = new ClasseConexao();
 
-                
+
                 conn.executarSQL($"exec usp_InsertJogo {gameCat}, '{gameName}', '{gameIcon}', '{gameSin}'");
                 Response.Write("<script>alert('Jogo criado com sucesso!')</script>");
                 // clearFields();
-                
+
             }
             catch (Exception ex)
             {
@@ -172,35 +178,14 @@ namespace tst.admPages
 
         protected void createIcon()
         {
-            strFolder = Server.MapPath("~/userPages/gamesImages/");
-            strFileName = inputGameImage.PostedFile.FileName;
-            strFileName = Path.GetFileName(strFileName);
+           
 
             try
             {
-                if (inputGameImage.Value != "")
-                {
-
-                    if (!Directory.Exists(strFolder))
-                    {
-                        Directory.CreateDirectory(strFolder);
-                    }
-                    strFilePath = strFolder + strFileName;
-                    if (File.Exists(strFilePath))
-                    {
-                        gameIcon = strFileName;
-                    }
-                    else
-                    {
-                        inputGameImage.PostedFile.SaveAs(strFilePath);
-                        gameIcon = strFileName;
-                    }
-
-                }
-                else
-                {
-                    throw new Exception("Selecione um arquivo!");
-                }
+                main = new gamesConn();
+                main.StrFolder = "~/userPages/gamesImages/";
+                main.ImgInput = inputGameImage;
+                gameIcon = main.createIcon();
 
             }
             catch (Exception exce)

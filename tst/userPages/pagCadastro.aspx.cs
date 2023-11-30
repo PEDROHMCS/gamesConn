@@ -5,12 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using tst.logicClasses;
 
 namespace tst.userPages
 {
     public partial class pagCadastro : System.Web.UI.Page
     {
         ClasseConexao conn;
+        gamesConn main;
         string userEmail, userPassword, username, userIcon;
 
         string strFileName, strFilePath, strFolder;
@@ -32,41 +34,19 @@ namespace tst.userPages
             username = (String.IsNullOrEmpty(txtUserName.Text)) ? throw new Exception("Insira os dados") : txtUserName.Text;
             userIcon = null;
 
-            strFolder = Server.MapPath("~/userPages/userIcons/");
-            strFileName = inputImage.PostedFile.FileName;
-            strFileName = Path.GetFileName(strFileName);
-
             try
             {
-                if (inputImage.Value != "")
-                {
 
-                    if (!Directory.Exists(strFolder))
-                    {
-                        Directory.CreateDirectory(strFolder);
-                    }
-                    strFilePath = strFolder + strFileName;
-                    if (File.Exists(strFilePath))
-                    {
-                        userIcon = strFileName;
-                    }
-                    else
-                    {
-                        inputImage.PostedFile.SaveAs(strFilePath);
-                        userIcon = strFileName;
-                    }
+                main = new gamesConn();
+                main.StrFolder = "~/userPages/userIcons/";
+                main.ImgInput = inputImage;
+                userIcon = main.createIcon();
 
-                }
-                else
-                {
-                    throw new Exception("Selecione um arquivo!");
-                }
-
-            }catch(Exception exce)
+            }
+            catch(Exception exce)
             {
                 Response.Write(exce.Message);
-            }
-            
+            }           
 
 
             try
@@ -85,7 +65,7 @@ namespace tst.userPages
         }
 
 
-        private void clearFields()
+        private void clearFields(TextBox t1, TextBox t2, TextBox)
         {
             txtEmail.Text = "";
             txtSenha.Text = "";
