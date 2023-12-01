@@ -7,20 +7,20 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace tst.userPages
+namespace tst
 {
 
 
-    public partial class userPagePlaceHolder
+    public partial class gameUserModel
     {
 
         /// <summary>
-        /// Controle form1.
+        /// Controle userGame.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Repeater userGame;
     }
 }

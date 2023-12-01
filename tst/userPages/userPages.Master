@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="userPages.master.cs" Inherits="tst.userPages.userPages" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="./styles/userPage.css"/>
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <header>
+        <h1>GamesConn</h1>
+
+        <div class="header-userInfos">
+            <asp:ImageButton ID="imgUserIcon" runat="server" ImageUrl="./userIcons/userIcon.png" />
+            <asp:LinkButton ID="lbUserLogoff" runat="server">Deslogar-se</asp:LinkButton>
+        </div>
+    </header>
+
+    <main>
+       <asp:ContentPlaceHolder ID="main" runat="server">
+
+       </asp:ContentPlaceHolder>
+    </main>
+</form>
+</body>
+</html>

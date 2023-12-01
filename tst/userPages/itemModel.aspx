@@ -6,15 +6,15 @@
             <div class="gameBox">
 
                 <img class="gameImage" src="./gamesImages/<%#Eval("Imagem_Jogo") %>" />
-
+                <asp:Label ID="lblCodHidden" CssClass="hidden" runat="server" Text='<%#Eval("Cod_Jogo") %>'></asp:Label>
                 <div class="contentDiv">
                     <p class="gameTitle"><%#Eval("Nome_Jogo")%></p>
                     <p class="gameDescription"><%#Eval("Sinopse_Jogo") %></p>
                 </div>
     
-                <asp:Button ID="btnAddGameOne" runat="server" Text="Add" CssClass="btnAdd" />
+                
+                <asp:LinkButton ID="btnAddGame"  CssClass="btnAdd" runat="server" OnClick="btnAddGame_Click">Adicionar</asp:LinkButton>
             </div>
-
         </ItemTemplate>
     </asp:Repeater>
 </asp:Content>

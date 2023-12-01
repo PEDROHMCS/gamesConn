@@ -50,6 +50,7 @@ form {
     font-size: 2.4rem;
     margin-bottom: 1rem;
     width: 100%;
+    color: #3D1860;
 }
 
 .container h1 {
@@ -58,6 +59,7 @@ form {
     font-size: 3.2rem;
     margin-bottom: 2.6rem;
     width: 100%;
+    color: #3D1860;
 }
 
 .inputBox {
@@ -83,6 +85,11 @@ form {
     font-size: 1.6rem;
     border-radius: 6px;
     border: 0.6px solid #282828;
+    transition: .4s
+}
+
+.inputModel:focus {
+    background-color: #F5EFF7;
 }
 
 #btnRegistrar, #btnLogar {
@@ -91,7 +98,7 @@ form {
     margin-top: 3.1rem;
     margin-bottom: 2rem;
     border-radius: .6rem;
-    background-color: #000;
+    background-color: #3D1860;
     outline: none;
     border: none;
     color: #FFF;
@@ -107,14 +114,9 @@ form {
 
 
 
-#btnRegistrar:hover {
+#btnLogar:hover, #btnRegistrar:hover {
     cursor: pointer;
-    background-color: rgb(0,0,0, 0.7)
-}
-
-#btnLogar:hover {
-    cursor: pointer;
-    background-color: rgb(0,0,0, 0.7)
+    background-color: rgb(61, 24, 96, .8)
 }
 
 .question {
@@ -125,7 +127,7 @@ form {
 }
 
 .bold {
-    color: #000;
+    color: #3D1860;
     font-family: Poppins, sans-serif;
     font-size: 1.6rem;
     font-weight: 600;

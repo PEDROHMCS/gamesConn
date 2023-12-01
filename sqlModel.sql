@@ -1,5 +1,5 @@
 use master
-
+drop database ListaJogos
 CREATE DATABASE ListaJogos;
 
 USE ListaJogos;
@@ -63,12 +63,6 @@ AS
 		insert into tblGenero values(@NomeGenero, @DescGenero)
 	End
 
-CREATE PROCEDURE usp_DeleteGenero
-	@CodGenero int
-AS
-	Begin
-		delete tblGenero where Cod_Genero = @CodGenero
-	End
 
 CREATE PROCEDURE usp_GetGenero
 	@CodGenero int
@@ -85,12 +79,6 @@ AS
 		insert into tblPlataforma values(@NomePlataforma, @DescPlataforma)
 	End
 
-CREATE PROCEDURE usp_DeletePlataforma
-	@CodPlataforma int
-AS
-	Begin
-		delete tblPlataforma where Cod_Plataforma = @CodPlataforma
-	End
 
 CREATE PROCEDURE usp_GetPlataforma
 	@CodPlataforma int
@@ -100,13 +88,6 @@ AS
 	End
 
 
-
-CREATE PROCEDURE usp_DeleteUsuario
-	@CodUsuario int
-AS
-	Begin
-		delete tblUsuario where Cod_Usuario = @CodUsuario
-	End
 
 CREATE PROCEDURE usp_GetUsuario
 	@CodUsuario int
@@ -134,3 +115,51 @@ AS
 		insert into tblUsuario(Nome_Usuario, Senha_Usuario, Email_Usuario, Icone_Usuario, Tipo_Usuario) values
 		(@NomeUsuario, @SenhaUsuario, @EmailUsuario, @UserIcon, @UserType) 
 	End
+
+CREATE PROCEDURE usp_InsertJogo
+@gameCat int,
+@gameName varchar(50),
+@gameIcon varchar(255),
+@gameSin varchar(1000)
+
+AS
+	Begin
+		insert into tblJogo(Cod_Genero, Nome_Jogo, Imagem_Jogo, Sinopse_Jogo) values
+		(@gameCat, @gameName, @gameIcon, @gameSin) 
+	End
+
+
+exec usp_InsertUsuario 'Marques', 'salame21', 'pedrohmcspro@gmail.com', 'hollow.jpg', 0
+
+
+exec usp_GetPlataforma 1
+
+select * from tblJogo
+
+exec usp_GetUsuarios
+
+select * from tblLista
+
+insert into tblLista(Cod_Usuario, Tamanho_Lista, JogosTerminados_Lista) values
+(2, 1, 0)
+
+insert into tblLista_Jogo(Cod_Lista, Cod_Jogo, Descricao_Lista_Jogo, Estado_Lista_Jogo) values
+(1, 1, 'Mt foda man', 'Jogando')
+
+
+drop procedure listarJogosUsuario
+
+CREATE PROCEDURE listarJogosUsuario
+@CodUser int
+
+as
+begin
+	select Jogo.Nome_Jogo, listJg.Estado_Lista_Jogo, gen.Nome_Genero, listJg.Descricao_Lista_Jogo, Jogo.Imagem_Jogo from tblJogo as Jogo inner join
+		tblLista_Jogo as listJg on Jogo.Cod_Jogo = listJg.Cod_Jogo inner join
+			tblGenero as gen on Jogo.Cod_Genero = gen.Cod_Genero inner join
+				tblLista as lis on lis.Cod_Lista = listJg.Cod_Lista inner join
+					tblUsuario as usuario on usuario.Cod_Usuario = lis.Cod_Usuario where usuario.Cod_Usuario = @CodUser
+end
+
+
+exec listarJogosUsuario 2

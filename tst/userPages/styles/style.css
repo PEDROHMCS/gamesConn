@@ -29,7 +29,7 @@ header h1 {
     font-family: 'Comic Neue', cursive;
     font-weight: 700;
     letter-spacing: .15rem;
-    color: #C03221
+    color: #3D1860
 }
 
 header .headerImage{
@@ -39,8 +39,8 @@ header .headerImage{
 }
 
 header .userIcon{
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 999rem;
     margin: 0 2rem;
 }
@@ -109,11 +109,19 @@ form {
     font-family: Poppins;
     font-size: 1.6rem;
     transition: .3s;
-    background-color: #3F826D;
-    color: #F7F7FF
+    background-color: #643579;
+    color: #F7F7FF;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .gameBox .btnAdd:hover {
     cursor: pointer;
-    background-color: rgb(63, 130, 109, 0.5)
+    background-color: rgb(61, 24, 96, 0.8)
+}
+
+.hidden{
+    display: none;
 }

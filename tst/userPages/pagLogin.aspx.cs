@@ -17,7 +17,7 @@ namespace tst.userPages
         byte dbUserType;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["codUser"] = 0;
+            
         }
 
         protected void linkLogar_Click(object sender, EventArgs e)
@@ -53,12 +53,17 @@ namespace tst.userPages
                         userLogged=true;
                         Session["codUser"] = Convert.ToInt32(dr["Cod_Usuario"]);
                         Session["userImgUrl"] = dr["Icone_Usuario"];
+                        Session["userType"] = dr["Tipo_Usuario"];
 
-                        
 
-                        Response.Redirect("itemModel.aspx");
+
+                        Response.Redirect("gameUserModel.aspx");
                     }else if(userEmail == dbEmail && userPassword == dbPassword && dbUserType == 0)
                     {
+                        userLogged = true;
+                        Session["codUser"] = Convert.ToInt32(dr["Cod_Usuario"]);
+                        Session["userImgUrl"] = dr["Icone_Usuario"];
+                        Session["userType"] = dr["Tipo_Usuario"];
 
                         Response.Redirect("~/admPages/adminPage.aspx");
                     }

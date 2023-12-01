@@ -89,7 +89,9 @@
         </section>
 
         <footer>
-            <asp:Button ID="btnLeave" runat="server" Text="Sair" OnClick="btnLeave_Click" />
+            <asp:Button ID="btnLogOut" CssClass="btnFooter" runat="server" Text="Deslogar-se" OnClick="btnLogOut_Click" />
+            <asp:Button ID="btnLeave" CssClass="btnFooter" runat="server" Text="Sair" OnClick="btnLeave_Click" />
+            
         </footer>
     </form>
 

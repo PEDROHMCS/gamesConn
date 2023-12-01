@@ -56,7 +56,7 @@ header h2 {
     outline: none;
     border: none;
     border-radius: .4rem;
-    background-color: #774FD1;
+    background-color: #643579;
     font-size: 1.6rem;
     font-weight: 700;
     font-family: 'Archivo', sans-serif;
@@ -64,10 +64,10 @@ header h2 {
     transition: .2s
 }
 
-.buttonModel:hover {
-    background-color: rgb(119, 79, 209, .8);
-    cursor: pointer;
-}
+    .buttonModel:hover {
+        background-color: rgb(61, 24, 96, .8);
+        cursor: pointer;
+    }
 
 .formSection{
     width: 100%;
@@ -190,17 +190,17 @@ footer{
     width: 100%;
     height: 10rem;
     align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 
-#btnLeave {
+.btnFooter {
     width: 14rem;
     height: 4rem;
     outline: none;
     border: none;
     border-radius: .4rem;
-    background-color: #EE4B2B;
+    background-color: #940B92;
     font-size: 1.4rem;
     font-weight: 700;
     font-family: 'Archivo', sans-serif;
@@ -209,8 +209,8 @@ footer{
     margin-top: 1.6rem;
 }
 
-    #btnLeave:hover {
-        background-color: rgb(238, 75, 43, 0.7);
+    .btnFooter:hover {
+        background-color: rgb(148, 11, 146, .8);
         cursor: pointer;
     }
 

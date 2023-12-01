@@ -28,6 +28,12 @@ namespace tst.admPages
             platForm.Visible = platState;
         }
 
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session["codUser"] = 0;
+            Response.Redirect("~/userPages/itemModel.aspx");
+        }
+
         #region openDivHandlers
         protected void btnCadastrarPlataforma_Click(object sender, EventArgs e)
         {
@@ -159,7 +165,6 @@ namespace tst.admPages
 
                 conn.executarSQL($"exec usp_InsertJogo {gameCat}, '{gameName}', '{gameIcon}', '{gameSin}'");
                 Response.Write("<script>alert('Jogo criado com sucesso!')</script>");
-                // clearFields();
 
             }
             catch (Exception ex)

@@ -56,7 +56,7 @@ namespace tst.userPages
                 //conn.executarSQL($"insert into Usuario(nomeUsuario, email, senha) values ('{username}', '{userEmail}', '{userPassword}')");
                 conn.executarSQL($"exec usp_InsertUsuario '{username}', '{userPassword}', '{userEmail}', '{userIcon}', 1");
                 Response.Write("<script>alert('Conta criada com sucesso!')</script>");
-                clearFields();
+                //clearFields();
             }catch(Exception ex)
             {
                 Response.Write("<script>alert('Erro ao inserir os dados')</script>");
@@ -65,12 +65,7 @@ namespace tst.userPages
         }
 
 
-        private void clearFields(TextBox t1, TextBox t2, TextBox)
-        {
-            txtEmail.Text = "";
-            txtSenha.Text = "";
-            txtUserName.Text = "";
-        }
+        
 
         private void CheckFields(TextBox field)
         {

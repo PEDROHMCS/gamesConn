@@ -69,13 +69,15 @@
   <ItemGroup>
     <Content Include="admPages\adminPage.aspx" />
     <Content Include="admPages\styles\styleAdmin.css" />
+    <Content Include="userPages\gameUserModel.aspx" />
     <Content Include="index.aspx" />
     <Content Include="userPages\gamesImages\jinxedejinx.jpg" />
     <Content Include="userPages\itemModel.aspx" />
     <Content Include="userPages\pagCadastro.aspx" />
     <Content Include="userPages\pagLogin.aspx" />
     <Content Include="userPages\styles\styleCadastro.css" />
-    <Content Include="userPages\userPagePlaceHolder.aspx" />
+    <Content Include="userPages\styles\userPage.css" />
+    <Content Include="userPages\userPage.aspx" />
     <Content Include="userPages\gamesImages\hollow.jpg" />
     <Content Include="userPages\userResources\jinxedejinx.jpg" />
     <Content Include="userPages\styles\style.css" />
@@ -88,6 +90,13 @@
     </Compile>
     <Compile Include="admPages\adminPage.aspx.designer.cs">
       <DependentUpon>adminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userPages\gameUserModel.aspx.cs">
+      <DependentUpon>gameUserModel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\gameUserModel.aspx.designer.cs">
+      <DependentUpon>gameUserModel.aspx</DependentUpon>
     </Compile>
     <Compile Include="logicClasses\ClasseConexao.cs" />
     <Compile Include="index.aspx.cs">
@@ -132,12 +141,19 @@
     <Compile Include="userPages\pagLogin.aspx.designer.cs">
       <DependentUpon>pagLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="userPages\userPagePlaceHolder.aspx.cs">
-      <DependentUpon>userPagePlaceHolder.aspx</DependentUpon>
+    <Compile Include="userPages\userPage.aspx.cs">
+      <DependentUpon>userPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="userPages\userPagePlaceHolder.aspx.designer.cs">
-      <DependentUpon>userPagePlaceHolder.aspx</DependentUpon>
+    <Compile Include="userPages\userPage.aspx.designer.cs">
+      <DependentUpon>userPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userPages\userPages.Master.cs">
+      <DependentUpon>userPages.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\userPages.Master.designer.cs">
+      <DependentUpon>userPages.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +163,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="userPages\userPages.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
