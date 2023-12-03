@@ -15,7 +15,7 @@ CREATE TABLE tblUsuario (
 
 CREATE TABLE tblLista (
 	Cod_Lista int primary key identity not null,
-	Cod_Usuario int foreign key references tblUsuario(Cod_Usuario) not null,
+	Cod_Usuario int foreign key references tblUsuario(Cod_Usuario) not null unique,
 	Tamanho_Lista tinyint,
 	JogosTerminados_Lista tinyint,
 )
@@ -116,6 +116,8 @@ AS
 		(@NomeUsuario, @SenhaUsuario, @EmailUsuario, @UserIcon, @UserType) 
 	End
 
+
+
 CREATE PROCEDURE usp_InsertJogo
 @gameCat int,
 @gameName varchar(50),
@@ -128,30 +130,25 @@ AS
 		(@gameCat, @gameName, @gameIcon, @gameSin) 
 	End
 
+create procedure usp_GetJogo
+@gameName varchar(50)
+as
+begin
+	select * from tblJogo where Nome_Jogo = @gameName
+end
+
+create procedure usp_GetJogos
+as
+begin
+	select * from tblJogo
+end
+
 
 exec usp_InsertUsuario 'Marques', 'salame21', 'pedrohmcspro@gmail.com', 'hollow.jpg', 0
 
 
-exec usp_GetPlataforma 1
-
-select * from tblJogo
-
-exec usp_GetUsuarios
-
-select * from tblLista
-
-insert into tblLista(Cod_Usuario, Tamanho_Lista, JogosTerminados_Lista) values
-(2, 1, 0)
-
-insert into tblLista_Jogo(Cod_Lista, Cod_Jogo, Descricao_Lista_Jogo, Estado_Lista_Jogo) values
-(1, 1, 'Mt foda man', 'Jogando')
-
-
-drop procedure listarJogosUsuario
-
 CREATE PROCEDURE listarJogosUsuario
 @CodUser int
-
 as
 begin
 	select Jogo.Nome_Jogo, listJg.Estado_Lista_Jogo, gen.Nome_Genero, listJg.Descricao_Lista_Jogo, Jogo.Imagem_Jogo from tblJogo as Jogo inner join
@@ -161,5 +158,37 @@ begin
 					tblUsuario as usuario on usuario.Cod_Usuario = lis.Cod_Usuario where usuario.Cod_Usuario = @CodUser
 end
 
+create procedure usp_getLista
+@CodUsuario int
+as
+begin
+	select * from tblLista where Cod_Usuario = @CodUsuario
+end
 
-exec listarJogosUsuario 2
+create procedure usp_insertLista
+@CodUsuario int
+as
+begin
+	Declare @dbUserValues int;
+	select @dbUserValues = Cod_Usuario from tblLista
+
+	insert into tblLista(Cod_Usuario, Tamanho_Lista, JogosTerminados_Lista) values
+	(@CodUsuario, 0, 0)
+end
+
+
+create procedure usp_InsertListaJogo
+@CodLista int,
+@CodJogo int,
+@Descricao varchar(255),
+@EstadoJogo varchar(15)
+as
+begin
+	insert into tblLista_Jogo(Cod_Lista, Cod_Jogo, Descricao_Lista_Jogo, Estado_Lista_Jogo) values
+	(@CodLista, @CodJogo, @Descricao, @EstadoJogo)
+end
+
+
+exec usp_GetUsuarios
+
+select * from tblGenero

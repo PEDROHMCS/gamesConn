@@ -32,7 +32,7 @@
                  
                
                     <div class="innerBox">
-                        <p class="lblModel">Selecione a sua foto de perfil</p>
+                        <p class="lblModel">Selecione a sua foto do jogo</p>
                         <label for="inputGameImage" id="lblUploadGame"></label>
                         <input ID="inputGameImage" type="file" runat="server" name="theFile" accept="image/png, image/gif, image/jpeg, image/jpg"/>
                     </div>

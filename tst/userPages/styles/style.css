@@ -1,5 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Gloria+Hallelujah&family=Poppins:wght@300;400;500;600&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=Comic+Neue:wght@700&family=Gloria+Hallelujah&family=Jockey+One&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root{
     font-size: 62.5%;
@@ -26,7 +25,7 @@ header h1 {
     flex: 1;
     margin: 0 2rem;
     font-size: 4rem;
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Jockey One', sans-serif;
     font-weight: 700;
     letter-spacing: .15rem;
     color: #3D1860
@@ -51,6 +50,7 @@ body {
 }
 
 form {
+    position: absolute;
     width: 100%;
     background-color: #F7FCFF;
 }
@@ -124,4 +124,79 @@ form {
 
 .hidden{
     display: none;
+}
+
+dialog:not([open]){
+    display: none;
+}
+
+dialog{
+    outline: none;
+    border: none;
+    resize: none;
+    background: rgb(255,255,255,0);
+    width: 100%;
+    height: 50%;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+        
+}
+
+.personalDesc {
+    width: 40%;
+    height: 80%;
+    border: none;
+    background-color: #FFFFFF;
+    border: 1px solid #E6E6F0;
+    border-radius: 1.2rem;
+    outline: none;
+    padding: 3rem;
+    font-size: 1.6rem;
+    font-family: Poppins, sans-serif;
+    color: #191919;
+    transition: .2s;
+    resize: none;
+}
+
+.personalDesc:focus {
+    outline: 1px solid #774FD1;
+}
+
+.btnComment {
+    width: 14rem;
+    height: 4rem;
+    outline: none;
+    border: none;
+    border-radius: .4rem;
+    background-color: #774FD1;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Archivo', sans-serif;
+    color: #FFF;
+    transition: .2s;
+    margin-top: 1.6rem;
+    text-decoration: none;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.btnComment:hover {
+    background-color: rgb(119, 79, 209, .8);
+    cursor: pointer;
+}
+
+.dropdown {
+    padding: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    background-color: #774FD1;
+    color: #fafafa;
+    font-size: 1.6rem;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
 }

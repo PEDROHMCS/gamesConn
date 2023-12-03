@@ -11,11 +11,11 @@
 <body>
     <form id="form1" runat="server">
     <header>
-        <h1>GamesConn</h1>
+        <asp:LinkButton ID="lblHome" OnClick="lblHome_Click" runat="server">GamesConn</asp:LinkButton>
 
         <div class="header-userInfos">
             <asp:ImageButton ID="imgUserIcon" runat="server" ImageUrl="./userIcons/userIcon.png" />
-            <asp:LinkButton ID="lbUserLogoff" runat="server">Deslogar-se</asp:LinkButton>
+            <asp:LinkButton ID="lbUserLogoff" runat="server" OnClick="lbUserLogoff_Click">Deslogar-se</asp:LinkButton>
         </div>
     </header>
 
@@ -23,7 +23,11 @@
        <asp:ContentPlaceHolder ID="main" runat="server">
 
        </asp:ContentPlaceHolder>
+
+        
     </main>
+
+    
 </form>
 </body>
 </html>

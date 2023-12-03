@@ -26,10 +26,13 @@
 
         <div class="gamesDiv">
             <asp:ContentPlaceHolder ID="content1" runat="server">
-                        <!--Area dos jogos -->
+                    
             </asp:ContentPlaceHolder>
         </div>
-
+       
+        
     </form>
+
+    
 </body>
 </html>

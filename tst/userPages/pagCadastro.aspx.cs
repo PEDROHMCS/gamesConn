@@ -29,25 +29,32 @@ namespace tst.userPages
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            userEmail = (String.IsNullOrEmpty(txtEmail.Text)) ? throw new Exception("Insira os dados") : txtEmail.Text;
-            userPassword = (String.IsNullOrEmpty(txtSenha.Text)) ? throw new Exception("Insira os dados") : txtSenha.Text;
-            username = (String.IsNullOrEmpty(txtUserName.Text)) ? throw new Exception("Insira os dados") : txtUserName.Text;
-            userIcon = null;
-
             try
             {
 
-                main = new gamesConn();
-                main.StrFolder = "~/userPages/userIcons/";
-                main.ImgInput = inputImage;
-                userIcon = main.createIcon();
+            
+            userEmail = (String.IsNullOrEmpty(txtEmail.Text)) ? throw new Exception("Insira o email") : txtEmail.Text;
+            userPassword = (String.IsNullOrEmpty(txtSenha.Text)) ? throw new Exception("Insira a senha") : txtSenha.Text;
+            username = (String.IsNullOrEmpty(txtUserName.Text)) ? throw new Exception("Insira o nome de usuario") : txtUserName.Text;
+            userIcon = null;
 
-            }
-            catch(Exception exce)
+                try
+                {
+
+                    main = new gamesConn();
+                    main.StrFolder = "~/userPages/userIcons/";
+                    main.ImgInput = inputImage;
+                    userIcon = main.createIcon();
+
+                }
+                catch(Exception exce)
+                {
+                    Response.Write(exce.Message);
+                }
+            }catch(Exception err)
             {
-                Response.Write(exce.Message);
-            }           
-
+                Response.Write($"<script>alert('${err.Message}')</script");
+            }
 
             try
             {

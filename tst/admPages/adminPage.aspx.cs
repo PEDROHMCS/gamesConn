@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace tst.admPages
     {
         ClasseConexao conn;
         gamesConn main;
+        DataTable dt;
         string strFileName, strFilePath, strFolder, gameIcon;
         string gameName, gameSin, genName, genDesc, platName, platDesc;
         int gameCat;
@@ -149,27 +151,55 @@ namespace tst.admPages
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-            gameName = (String.IsNullOrEmpty(txtGameName.Text)) ? throw new Exception("Insira os dados") : txtGameName.Text;
-            gameCat = (String.IsNullOrEmpty(txtGameCat.Text)) ? throw new Exception("Insira os dados") : Convert.ToInt32(txtGameCat.Text);
-            gameSin = (String.IsNullOrEmpty(txtGameSin.Text)) ? throw new Exception("Insira os dados") : txtGameSin.Text;
-
-            gameIcon = "userIcon.png";
-
-            createIcon();
-
             try
-            {
+            {          
+                gameName = (String.IsNullOrEmpty(txtGameName.Text)) ? throw new Exception("Insira os dados") : txtGameName.Text;
+                gameCat = (String.IsNullOrEmpty(txtGameCat.Text)) ? throw new Exception("Insira os dados") : Convert.ToInt32(txtGameCat.Text);
+                gameSin = (String.IsNullOrEmpty(txtGameSin.Text)) ? throw new Exception("Insira os dados") : txtGameSin.Text;
 
-                conn = new ClasseConexao();
+                gameIcon = "userIcon.png";
 
+                createIcon();
 
-                conn.executarSQL($"exec usp_InsertJogo {gameCat}, '{gameName}', '{gameIcon}', '{gameSin}'");
-                Response.Write("<script>alert('Jogo criado com sucesso!')</script>");
+                try
+                {
 
+                    conn = new ClasseConexao();
+
+                    conn.executarSQL($"exec usp_InsertJogo {gameCat}, '{gameName}', '{gameIcon}', '{gameSin}'");
+
+                   
+
+                    try
+                    {
+                        conn = new ClasseConexao();
+                        dt = conn.executarSQL($"exec usp_GetJogo '{gameName}'");
+                        if (dt.Rows.Count == 0)
+                        {
+                            Response.Write("<script>alert('Erro ao criar o jogo!')</script>");
+
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Jogo criado com sucesso!')</script>");
+                        }
+                    }catch(Exception err)
+                    {
+                        Response.Write("<script>alert('Jogo criado com sucesso!')</script>");
+                    }
+                   
+
+                
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('Erro ao inserir os dados')</script>");
+                }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Response.Write("<script>alert('Erro ao inserir os dados')</script>");
+                Response.Write($"<script>alert('{ex.Message}')</script>");
             }
 
         }

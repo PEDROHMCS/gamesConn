@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=Comic+Neue:wght@700&family=Gloria+Hallelujah&family=Poppins:wght@300;400;500;600&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=Comic+Neue:wght@700&family=Gloria+Hallelujah&family=Jockey+One&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
     font-size: 62.5%;
@@ -30,6 +30,13 @@ header{
     padding: 2rem;
 }
 
+header #lblHome {
+    font-size: 4rem;
+    font-family: 'Jockey One', sans-serif;
+    text-decoration: none;
+    color: #3D1860;
+}
+
 .header-userInfos{
     display: flex;
     justify-content: center;
@@ -56,18 +63,22 @@ header{
 main{
     width: 100%;
     padding: 7rem 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .gameModel {
     width: 80%;
     display: flex;
     background-color: #F5EDF7;
+    border-radius: 0 .8rem .8rem 0;
 }
 
 .gameModelImage {
     width: 40%;
     min-height: 30rem;
-    min-width: 30rem;
+    max-width: 30rem;
 }
 
 
@@ -80,6 +91,7 @@ main{
     padding: 2rem;
     background-color: #F5EDF7;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -106,7 +118,7 @@ main{
     color: #3D1860;
 }
 
-.contentHeader #btnEdit {
+.contentHeader .btnEdit {
     width: 11rem;
     height: 2.5rem;
     border: none;
@@ -117,13 +129,13 @@ main{
     font-weight: 600;
 }
 
-.contentHeader #btnEdit:hover {
+.contentHeader .btnEdit:hover {
     cursor: pointer;
     background-color:rgba(248, 215, 185, .8) 
 }
 
 .gameComments p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #3D1860;
     font-family: Poppins, sans-serif;
     text-align: justify;
