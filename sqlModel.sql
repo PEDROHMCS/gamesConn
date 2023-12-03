@@ -146,17 +146,20 @@ end
 
 exec usp_InsertUsuario 'Marques', 'salame21', 'pedrohmcspro@gmail.com', 'hollow.jpg', 0
 
+drop procedure listarJogosUsuario
 
 CREATE PROCEDURE listarJogosUsuario
 @CodUser int
 as
 begin
-	select Jogo.Nome_Jogo, listJg.Estado_Lista_Jogo, gen.Nome_Genero, listJg.Descricao_Lista_Jogo, Jogo.Imagem_Jogo from tblJogo as Jogo inner join
+	select Jogo.Nome_Jogo, listJg.Cod_Jogo, listJg.Cod_Lista, listJg.Estado_Lista_Jogo, gen.Nome_Genero, listJg.Descricao_Lista_Jogo, Jogo.Imagem_Jogo from tblJogo as Jogo inner join
 		tblLista_Jogo as listJg on Jogo.Cod_Jogo = listJg.Cod_Jogo inner join
 			tblGenero as gen on Jogo.Cod_Genero = gen.Cod_Genero inner join
 				tblLista as lis on lis.Cod_Lista = listJg.Cod_Lista inner join
 					tblUsuario as usuario on usuario.Cod_Usuario = lis.Cod_Usuario where usuario.Cod_Usuario = @CodUser
 end
+
+exec listarJogosUsuario 2
 
 create procedure usp_getLista
 @CodUsuario int
@@ -176,19 +179,59 @@ begin
 	(@CodUsuario, 0, 0)
 end
 
+drop procedure usp_InsertListaJogo
 
 create procedure usp_InsertListaJogo
-@CodLista int,
-@CodJogo int,
+@CodLista int, -- 1
+@CodJogo int, -- 1
 @Descricao varchar(255),
 @EstadoJogo varchar(15)
 as
 begin
-	insert into tblLista_Jogo(Cod_Lista, Cod_Jogo, Descricao_Lista_Jogo, Estado_Lista_Jogo) values
-	(@CodLista, @CodJogo, @Descricao, @EstadoJogo)
+	Declare @codDb int
+	select @codDb = Cod_Jogo from tblLista_Jogo where Cod_Lista = @CodLista
+	
+	print(@codDb)
+	print(@codJogo)
+
+	if(@CodJogo = @codDb)
+		begin
+			print('Error')
+			print(@codDb)
+		end
+	else
+	begin
+		insert into tblLista_Jogo(Cod_Lista, Cod_Jogo, Descricao_Lista_Jogo, Estado_Lista_Jogo) values
+		(@CodLista, @CodJogo, @Descricao, @EstadoJogo)
+	end
+	
 end
 
+create procedure usp_UpdateListaJogo
+@CodLista int, -- 1
+@CodJogo int, -- 1
+@Descricao varchar(255),
+@EstadoJogo varchar(15)
+as
+begin
+	update tblLista_Jogo set Descricao_Lista_Jogo = @Descricao, Estado_Lista_Jogo = @EstadoJogo where Cod_Jogo = @CodJogo and Cod_Lista = @CodLista
+end
+
+exec usp_UpdateListaJogo 1, 2, 'Nova descrição', 'Pretendo Jogar'
+
+
+delete from tblLista_Jogo
+
+exec usp_InsertListaJogo 1, 1, 'atatatata', 'finalizado'
 
 exec usp_GetUsuarios
 
+select * from tblPlataforma
+
 select * from tblGenero
+
+select * from tblLista_Jogo
+
+select * from tblJogo
+
+delete from tblLista_Jogo where Cod_Lista_Jogo = 7

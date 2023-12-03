@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
     <header>
-        <asp:LinkButton ID="lblHome" OnClick="lblHome_Click" runat="server">GamesConn</asp:LinkButton>
+        <asp:LinkButton ID="lblHome" OnClick="lblHome_Click" runat="server">GamesConnection</asp:LinkButton>
 
         <div class="header-userInfos">
             <asp:ImageButton ID="imgUserIcon" runat="server" ImageUrl="./userIcons/userIcon.png" />
@@ -20,6 +20,7 @@
     </header>
 
     <main>
+        <h2>Meus jogos</h2>
        <asp:ContentPlaceHolder ID="main" runat="server">
 
        </asp:ContentPlaceHolder>
