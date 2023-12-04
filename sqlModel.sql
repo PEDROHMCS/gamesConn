@@ -30,7 +30,7 @@ CREATE TABLE tblJogo (
 	Cod_Jogo int primary key identity not null,
 	Cod_Genero int foreign key references tblGenero(Cod_Genero) not null,
 	Nome_Jogo varchar(50) not null unique,
-	Imagem_Jogo varchar(255) DEFAULT('imagem/default.png'),
+	Imagem_Jogo varchar(255) DEFAULT('hollow.jpg'),
 	Sinopse_Jogo varchar(1000)
 )
 
@@ -143,10 +143,9 @@ begin
 	select * from tblJogo
 end
 
-
+-- Conta de administrador
 exec usp_InsertUsuario 'Marques', 'salame21', 'pedrohmcspro@gmail.com', 'hollow.jpg', 0
 
-drop procedure listarJogosUsuario
 
 CREATE PROCEDURE listarJogosUsuario
 @CodUser int
@@ -158,8 +157,6 @@ begin
 				tblLista as lis on lis.Cod_Lista = listJg.Cod_Lista inner join
 					tblUsuario as usuario on usuario.Cod_Usuario = lis.Cod_Usuario where usuario.Cod_Usuario = @CodUser
 end
-
-exec listarJogosUsuario 2
 
 create procedure usp_getLista
 @CodUsuario int
@@ -178,8 +175,6 @@ begin
 	insert into tblLista(Cod_Usuario, Tamanho_Lista, JogosTerminados_Lista) values
 	(@CodUsuario, 0, 0)
 end
-
-drop procedure usp_InsertListaJogo
 
 create procedure usp_InsertListaJogo
 @CodLista int, -- 1
@@ -216,22 +211,3 @@ as
 begin
 	update tblLista_Jogo set Descricao_Lista_Jogo = @Descricao, Estado_Lista_Jogo = @EstadoJogo where Cod_Jogo = @CodJogo and Cod_Lista = @CodLista
 end
-
-exec usp_UpdateListaJogo 1, 2, 'Nova descrição', 'Pretendo Jogar'
-
-
-delete from tblLista_Jogo
-
-exec usp_InsertListaJogo 1, 1, 'atatatata', 'finalizado'
-
-exec usp_GetUsuarios
-
-select * from tblPlataforma
-
-select * from tblGenero
-
-select * from tblLista_Jogo
-
-select * from tblJogo
-
-delete from tblLista_Jogo where Cod_Lista_Jogo = 7

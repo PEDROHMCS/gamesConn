@@ -100,9 +100,6 @@ namespace tst.admPages
         }
         #endregion
 
-
-
-
         protected void btnCadPlat_Click(object sender, EventArgs e)
         {
             platName = (String.IsNullOrEmpty(txtPlatName.Text)) ? throw new Exception("Insira os dados") : txtPlatName.Text;
@@ -122,8 +119,6 @@ namespace tst.admPages
                 Response.Write("<script>alert('Erro ao inserir os dados')</script>");
             }
         }
-
-
         protected void btnCadGender_Click(object sender, EventArgs e)
         {
             genName = (String.IsNullOrEmpty(txtGenName.Text)) ? throw new Exception("Insira os dados") : txtGenName.Text;
@@ -144,13 +139,8 @@ namespace tst.admPages
             }
         }
 
-
-
-
-
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
-
             try
             {          
                 gameName = (String.IsNullOrEmpty(txtGameName.Text)) ? throw new Exception("Insira os dados") : txtGameName.Text;
@@ -165,10 +155,7 @@ namespace tst.admPages
                 {
 
                     conn = new ClasseConexao();
-
-                    conn.executarSQL($"exec usp_InsertJogo {gameCat}, '{gameName}', '{gameIcon}', '{gameSin}'");
-
-                   
+                    conn.executarSQL($"exec usp_InsertJogo {gameCat}, '{gameName}', '{gameIcon}', '{gameSin}'");                   
 
                     try
                     {
@@ -186,11 +173,7 @@ namespace tst.admPages
                     }catch(Exception err)
                     {
                         Response.Write("<script>alert('Jogo criado com sucesso!')</script>");
-                    }
-                   
-
-                
-
+                    }                 
                 }
                 catch (Exception ex)
                 {
@@ -201,7 +184,6 @@ namespace tst.admPages
             {
                 Response.Write($"<script>alert('{ex.Message}')</script>");
             }
-
         }
 
         protected void btnLeave_Click(object sender, EventArgs e)
@@ -209,12 +191,8 @@ namespace tst.admPages
             Response.Redirect("~/userPages/itemModel.aspx");
 
         }
-
-
         protected void createIcon()
-        {
-           
-
+        {           
             try
             {
                 main = new gamesConn();
